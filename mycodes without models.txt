@@ -1,0 +1,33 @@
+var index = 3;
+var slaytCount = models.length;
+showSlide();
+
+
+document.querySelector('.fa-arrow-left').addEventListener('click', function (){
+    index--;
+    if (index < 0) {
+        index = slaytCount - 1;
+    }
+    showSlide();
+})
+
+
+document.querySelector('.fa-arrow-right').addEventListener('click', function(){
+    index++;
+    if (index > slaytCount - 1){
+        index = 0;
+    }
+    showSlide();
+})
+
+function showSlide (){
+    document.querySelector('.card-img-top').setAttribute('src', models[index].image);
+
+    document.querySelector('.card-title').textContent = models[index].name;
+
+    document.querySelector('.card-link').setAttribute('href', models[index].link);
+
+    document.querySelector('.card-text').textContent = models[index].text;
+
+    console.log(index);
+}
